@@ -34,8 +34,8 @@ export default function EndScreen() {
         setScore(0);
         setGameState("menu");
         setAnswerResults([]);
-        setTopic("React");
-        questionGenerator("React");
+        setTopic("Javascript");
+        questionGenerator("Javascript");
     }
 
     const questionGenerator = (topic) =>{
@@ -60,8 +60,9 @@ export default function EndScreen() {
                 <ProgressBar striped variant="success" now={successProgress} key={1} />
                 <ProgressBar variant="danger" now={100 - successProgress} key={2} />
             </ProgressBar>
-
+            <div className="actions">
             <Button size="lg" variant="secondary" onClick={restartQuiz}>Restart Quiz</Button>
+            </div>
 
         </Card>
     )

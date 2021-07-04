@@ -21,8 +21,8 @@ function App() {
   const [gameState, setGameState] = useState("menu");
   const [score, setScore] = useState(0);
   const [answerResults, setAnswerResults] = useState(initialArray);
-  const [topic, setTopic] = useState("React");
-  const initialQuestion = Questions.filter(question => question.topic === "React");;
+  const [topic, setTopic] = useState("Javascript");
+  const initialQuestion = Questions.filter(question => question.topic === "Javascript");;
   const [questions, setQuestions] = useState(initialQuestion);
   const [mute, setMute] = useState(false);
 

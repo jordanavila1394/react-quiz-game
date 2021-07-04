@@ -24,8 +24,10 @@ export default function MainMenu() {
     }
     return (
         <Card>
-            <Button className="startBtn" size="lg" variant="success" onClick={() => { clickSetGame()}}>Start quiz</Button>
-            <Topics />
+            <div className="menu-options">
+                <Button className="startBtn" size="lg" variant="success" onClick={() => { clickSetGame()}}>Start quiz</Button>
+                <Topics />
+            </div>
         </Card>
     )
 }

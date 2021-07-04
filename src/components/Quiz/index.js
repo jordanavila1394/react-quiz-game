@@ -6,7 +6,7 @@ import { QuizContext } from '../../helpers/Contexts'
 
 //components
 import Division from '../Division'
-
+import Hint from './Hint'
 //bootsrap
 import { Button, Card } from 'react-bootstrap';
 
@@ -19,6 +19,7 @@ export default function Quiz() {
     const { score, setScore, setGameState, answerResults, setAnswerResults, questions } = useContext(QuizContext);
     const [currQuestion, setCurrQuestion] = useState(0);
     const [optionChosen, setOptionChosen] = useState("");
+    const [showHint, setShowHint] = useState(false);
     const [playNextSound] = useSound(clickNextSfx);
     const [playOptionSound] = useSound(optionSelectedSfx);
 
@@ -32,6 +33,7 @@ export default function Quiz() {
         } else {
             setAnswerResults([...answerResults, { currQuestion, optionChosen, correct: false }]);
         }
+        setShowHint(false);
         setOptionChosen('');
         playNextSound();
     }
@@ -58,11 +60,12 @@ export default function Quiz() {
             <div className="options">
                 <Button onClick={() => clickSetOptionChosen('A')} block>{questions[currQuestion].optionA}</Button>
                 <Button onClick={() => clickSetOptionChosen('B')} block>{questions[currQuestion].optionB}</Button>
-                <Button onClick={() => clickSetOptionChosen('C')} block>{questions[currQuestion].optionC}</Button>
-                <Button onClick={() => clickSetOptionChosen('D')} block>{questions[currQuestion].optionD}</Button>
+                {questions[currQuestion].optionC && <Button onClick={() => clickSetOptionChosen('C')} block>{questions[currQuestion].optionC}</Button>}
+                {questions[currQuestion].optionD && <Button onClick={() => clickSetOptionChosen('D')} block>{questions[currQuestion].optionD}</Button>}
             </div>
             <div className="steps">
                 <Division numerator={currQuestion + 1} denominator={questions.length} />
+                {questions[currQuestion].hint && <Hint hint={questions[currQuestion].hint} show={showHint} setShow={setShowHint}/>}
             </div>
             <div className="actions">
                 {currQuestion === questions.length - 1 ? (

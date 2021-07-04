@@ -1,3 +1,8 @@
+
+html{
+  background-color: lightseagreen !important;
+
+}
 #root {
   display: flex;
   justify-content: center;
@@ -10,14 +15,12 @@
   background-color: lightseagreen !important;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 100vh;
   width: 100vw;
 }
 
 .logo {
-  position: absolute !important;
   top: 0;
 }
 
@@ -47,9 +50,16 @@
   font-size: 20px;
   cursor: pointer;
 } */
-
+.menu-options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 200px;
+}
 .prompt {
-  width: 70%;
+  width: 80%;
+  height: 100px;
   margin-bottom: 1rem;
 }
 .prompt .card-title {
@@ -57,6 +67,7 @@
 }
 .options {
   width: 70%;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,14 +102,34 @@
 .btn-group {
   margin-bottom: 1rem;
 }
+.hint button, .hint button:hover, .hint button:active, .hint button:focus,
+.hint .btn-primary:not(:disabled):not(.disabled).active,
+.hint .btn-primary:not(:disabled):not(.disabled):active, 
+.hint .show>.btn-primary.dropdown-toggle {
+  color: rgb(255, 230, 6) !important;
+  font-size: large !important;
+  background-color: transparent !important;
+  border-color: transparent!important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
 
+.hint button svg{
+  height: 1.5em !important;
+  width: 1.5em !important;
+}
+
+.tooltip-inner{
+    color: #000 !important;
+    background-color: #fff !important;
+}
 @media screen and (max-width: 600px) {
   .logo img {
     height: 90%;
   }
 
   .card {
+    position: initial !important;
     width: 100% !important;
-    top: 50px !important;
   }
 }
